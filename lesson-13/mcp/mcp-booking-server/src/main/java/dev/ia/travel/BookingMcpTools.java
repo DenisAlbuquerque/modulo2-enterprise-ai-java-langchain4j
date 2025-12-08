@@ -19,8 +19,9 @@ public class BookingMcpTools {
 
     @Tool(description = "Cancela uma reserva existente. Requer ID e nome do cliente para validação.")
     public String cancelBooking(
-            @ToolArg(description = "ID da reserva a cancelar") long id) {
-        return service.cancelBooking(id)
+            @ToolArg(description = "ID da reserva a cancelar") long id,
+            @ToolArg(description = "Usuário que está tentando cancelar a reserva") String name) {
+        return service.cancelBooking(id, name)
                 .map(b -> "Sucesso: Reserva " + id + " cancelada. Status: " + b.status())
                 .orElse("Falha: Reserva não encontrada ou nome incorreto para o ID " + id);
     }
