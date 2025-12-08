@@ -15,12 +15,7 @@ public class TravelAgentResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String ask(String question, @HeaderParam("X-User-Name") String userName) {
         if (userName != null && !userName.isEmpty()) {
-            try {
-                SecurityContext.setCurrentUser(userName);
-                return expert.chat(userName, question, userName);
-            } finally {
-                SecurityContext.clear();
-            }
+            return expert.chat(userName, question, userName);
         } else {
             return "Usuário precisa estar autenticado!";
         }
