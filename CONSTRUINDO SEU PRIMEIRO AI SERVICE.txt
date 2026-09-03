@@ -1,0 +1,15 @@
+CONSTRUINDO SEU PRIMEIRO AI SERVICE
+
+mvn "io.quarkus.platform:quarkus-maven-plugin:3.2.10.Final:create" \
+    -DprojectGroupId="dev.ia" \
+    -DprojectArtifactId="agencia-viagem-ai" \
+    -Dextensions="quarkus-rest,quarkus-langchain4j-ollama"
+	
+	
+	
+curl -X POST -H "Content-Type: text/plain" -d "Estou planejando uma viagem para o Japao. Qual a melhor epoca do ano para visitar e por que? Responda em portugues." http://localhost:8080/travel
+
+melhor usar no gitbash
+curl http://localhost:11434/api/chat \
+  -H "Content-Type: application/json" \
+  -d '{"model":"gpt-oss:20b","messages":[{"role":"user","content":"Responda em português: qual a melhor época para visitar o Japão?"}],"stream":false}'
