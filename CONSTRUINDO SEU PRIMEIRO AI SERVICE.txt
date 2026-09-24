@@ -13,3 +13,7 @@ melhor usar no gitbash
 curl http://localhost:11434/api/chat \
   -H "Content-Type: application/json" \
   -d '{"model":"gpt-oss:20b","messages":[{"role":"user","content":"Responda em português: qual a melhor época para visitar o Japão?"}],"stream":false}'
+  
+curl -X POST -H "Content-Type: text/plain" -d "Qual a politica de cancelamento para o pacote Aventura Amazonia? Responda em portugues." http://localhost:8080/travel  
+
+
